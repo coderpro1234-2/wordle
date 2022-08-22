@@ -41,7 +41,6 @@ const guwords = ["cigar","rebut","sissy","humph","awake","blush","focal","evade"
           wordinc = inword.charAt(i-1)
           document.getElementById(id1).className="buttonyel"
           document.getElementById(id1).innerText=wordinc.toLocaleUpperCase()
-          alert(document.getElementById("key_"+wordinc).className)
           if (document.getElementById("key_"+wordinc).className != "buttongreen charbutton") {
             document.getElementById("key_"+wordinc).className = 'buttonyel charbutton'
           }
