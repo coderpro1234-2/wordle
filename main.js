@@ -27,6 +27,12 @@ const guwords = ["cigar","rebut","sissy","humph","awake","blush","focal","evade"
         return
       }
       i = 1
+      while (27 > i) {
+        tempcharamount[i-1] = charamount[i-1]
+        i ++
+      }
+      alert(tempcharamount == charamount)
+      i = 1
       while (6 > i) {
         if(inword.charAt(i-1) === actword.charAt(i-1)) {
           id1 = collum.toString()+"0"+i.toString()
@@ -34,7 +40,7 @@ const guwords = ["cigar","rebut","sissy","humph","awake","blush","focal","evade"
           document.getElementById(id1).className="buttongre"
           document.getElementById(id1).innerText=wordinc.toLocaleUpperCase()
           document.getElementById("key_"+wordinc).className = 'buttongre charbutton'
-          charamount[useablechars.indexOf(actword.charAt(i-1))] -= 1
+          tempcharamount[useablechars.indexOf(actword.charAt(i-1))] -= 1
         }
         else if (actword.includes(inword.charAt(i-1)) && tempcharamount[useablechars.indexOf(inword.charAt(i-1))] > 0) {
           id1 = collum.toString()+"0"+i.toString()
@@ -44,7 +50,7 @@ const guwords = ["cigar","rebut","sissy","humph","awake","blush","focal","evade"
           if (document.getElementById("key_"+wordinc).className != "buttongreen charbutton") {
             document.getElementById("key_"+wordinc).className = 'buttonyel charbutton'
           }
-          charamount[useablechars.indexOf(actword.charAt(i-1))] -= 1
+          tempcharamount[useablechars.indexOf(actword.charAt(i-1))] -= 1
         }
         else {
           id1 = collum.toString()+"0"+i.toString()
