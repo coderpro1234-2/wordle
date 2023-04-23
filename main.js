@@ -7,12 +7,13 @@
       return Math.floor(Math.random() * (max - min + 1) ) + min;
     }
     function setchars(word) {
-      i = 0
-      while (5 > i) {
-        charamount[useablechars.indexOf(word.charAt(i))] += 1
+      charamount = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+      i = 1
+      while (6 > i) {
+        charamount[useablechars.indexOf(word.charAt(i-1))] += 1
         i ++
       }
-      
+      return charamount
     }
     word=trwords[getRndInteger(0, trwords.length-1)]
     setchars(word)
@@ -22,7 +23,7 @@
       if (finish == "true") {
         return
       }
-      tempcharamount = charamount
+      tempcharamount = setchars(actword)
       i = 1
       while (6 > i) {
         id1 = collum.toString()+"0"+i.toString()
@@ -36,6 +37,7 @@
       }
       i = 1
       while (6 > i) {
+        changechar = tempcharamount[useablechars.indexOf(actword.charAt(i-1))]
         charequal = inword.charAt(i-1) === actword.charAt(i-1)
         if(charequal) {
           id1 = collum.toString()+"0"+i.toString()
@@ -43,7 +45,7 @@
           document.getElementById(id1).className="buttongre"
           document.getElementById(id1).innerText=wordinc.toLocaleUpperCase()
           document.getElementById("key_"+wordinc).className = 'buttongre charbutton'
-          tempcharamount[useablechars.indexOf(actword.charAt(i-1))] -= 1
+          tempcharamount[useablechars.indexOf(actword.charAt(i-1))] = changechar-1
         }
         i++
       }
@@ -56,11 +58,10 @@
           wordinc = inword.charAt(i-1)
           document.getElementById(id1).className="buttonyel"
           document.getElementById(id1).innerText=wordinc.toLocaleUpperCase()
-          if (document.getElementById("key_"+wordinc).className != "buttongreen charbutton") {
+          if (document.getElementById("key_"+wordinc).className != "buttongre charbutton") {
             document.getElementById("key_"+wordinc).className = 'buttonyel charbutton'
           }
-          
-          tempcharamount[useablechars.indexOf(actword.charAt(i-1))] -= 1
+          tempcharamount[useablechars.indexOf(inword.charAt(i-1))] = changechar-1
         }
         i++
       }
@@ -115,7 +116,7 @@
           addletter((e.key).toLocaleLowerCase())
         }
       }
-      if (e.code == "Backspace") {
+      if (e.key == "Backspace") {
         backspace()
         drawpreword()
       }
