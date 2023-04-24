@@ -1,6 +1,7 @@
     useablechars = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
     charamount = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
     tempcharamount = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+    defurl = "https://coderpro1234-2.github.io"
     wordin=""
     var finish="false"
     function getRndInteger(min, max) {
